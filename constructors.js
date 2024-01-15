@@ -88,4 +88,4 @@ const fake_car = {
   name: "Mercedes",
 };
 
-driver_1.driveCar(fake_car);
+driver_1.driveCar(car_1);
