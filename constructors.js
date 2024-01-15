@@ -14,7 +14,7 @@ function Person(name, age) {
 const person1 = new Person("Alice", 30);
 const person2 = new Person("Bob", 25);
 
-console.log(person1.sayHello()); // Alice
+// console.log(person1.sayHello()); // Alice
 
 // Constructor's prototype property and adding a method to the prototype
 Person.prototype.sayHello = function () {
@@ -26,3 +26,66 @@ Person.prototype.sayHello = function () {
 // Array.isArray(), Array.prototype.length
 // Object constructor native methods and properties
 // Object.keys(), Object.values(), Object.entries(), Object.prototype.hasOwnProperty()
+
+// ES5
+
+// function Car(make, model, year) {
+//   this.make = make;
+//   this.model = model;
+//   this.year = year;
+// }
+
+// Car.prototype.drive = function () {
+//   console.log(`${this.make} is from ${this.year}`);
+// };
+
+// ES6
+
+class Vehicle {
+  constructor(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+}
+
+class Car extends Vehicls {
+  constructor() {
+    super();
+  }
+
+  start() {
+    console.log(`${this.make} is from ${this.year}`);
+  }
+
+  stop() {}
+}
+
+class Truck extends Vehicle {
+  constructor() {
+    super();
+  }
+}
+
+class Driver {
+  constructor(name, age, experience) {
+    this.name = name;
+    this.age = age;
+    this.experience = experience;
+  }
+
+  driveCar(car) {
+    // if 'car' is of type Car ==> continue
+    // else return
+  }
+}
+
+[{}, {}, {}]; // JS array ==> BE JSON.stringify ==> FE JSON.parse() ==> JS array
+
+const driver_1 = new Driver("Schumacher", 40, 20);
+const car_1 = new Car("BMW", "X5", 2020);
+const fake_car = {
+  name: "Mercedes",
+};
+
+driver_1.driveCar(fake_car);
