@@ -39,33 +39,60 @@ Person.prototype.sayHello = function () {
 //   console.log(`${this.make} is from ${this.year}`);
 // };
 
+function Vehicle(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+}
+
+Vehicle.prototype.getMake = function () {
+  return `${this.make}`;
+};
+
+function Car(make, model, year, country) {
+  Vehicle.call(this, make, model, year);
+  this.country = country;
+}
+
+const vehicle_1 = new Vehicle("", "", "");
+const car_1 = new Car();
+
+vehicle_1.getMake();
+
 // ES6
+// class Vehicle {
+//   constructor(make, model, year) {
+//     this.make = make;
+//     this.model = model;
+//     this.year = year;
+//   }
 
-class Vehicle {
-  constructor(make, model, year) {
-    this.make = make;
-    this.model = model;
-    this.year = year;
-  }
-}
+//   start() {
+//     console.log(`${this.make} and ${this.model} is from ${this.year}`)
+//   }
+//   stop() {}
+// }
 
-class Car extends Vehicls {
-  constructor() {
-    super();
-  }
+// // Inheritance ES6
+// class Car extends Vehicle {
+//   constructor(make, model, year, country, fuel) {
+//     // Vehicle.constructor(make, model, year);
+//     super(make, model, year);
+//     this.country = country;
+//     this.fuel = fuel;
+//   }
+// }
 
-  start() {
-    console.log(`${this.make} is from ${this.year}`);
-  }
+// const car_1 = new Car('Mercedes', 'GLE', 2021, 'Germany', 'diesel')
 
-  stop() {}
-}
+// class Truck extends Vehicle {
+//   constructor(make, model, year, trailer) {
+//     super(make, model, year);
+//     this.trailer = trailer;
+//   }
+// }
 
-class Truck extends Vehicle {
-  constructor() {
-    super();
-  }
-}
+// const truck_1 = new Truck('Mercedes', 'Actros', 2021, true);
 
 class Driver {
   constructor(name, age, experience) {
@@ -80,12 +107,14 @@ class Driver {
   }
 }
 
-[{}, {}, {}]; // JS array ==> BE JSON.stringify ==> FE JSON.parse() ==> JS array
+// [{}, {}, {}]; // JS array ==> BE JSON.stringify ==> FE JSON.parse() ==> JS array
 
 const driver_1 = new Driver("Schumacher", 40, 20);
-const car_1 = new Car("BMW", "X5", 2020);
+// const car_1 = new Car("BMW", "X5", 2020);
 const fake_car = {
   name: "Mercedes",
 };
 
 driver_1.driveCar(car_1);
+
+export { Vehicle, Car };
