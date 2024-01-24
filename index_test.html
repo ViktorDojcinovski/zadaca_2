@@ -1,0 +1,21 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Call Example</title>
+  </head>
+  <body>
+    <div id="container">
+      <span>Item 1</span>
+      <span>Item 2</span>
+      <span>Item 3</span>
+    </div>
+    <script>
+      const container = document.getElementById("container");
+      const spans = container.getElementsByTagName("span");
+      const spansArray = Array.prototype.slice.call(spans);
+      console.log(spansArray);
+      spansArray.map((span) => (span.style.color = "red"));
+    </script>
+  </body>
+</html>
